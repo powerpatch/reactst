@@ -12,6 +12,9 @@ export const spacetradersApi = createApi({
         getFactions: builder.query({
             query: (params) => `factions${params ? '?'.concat(new URLSearchParams(params).toString()) : ''}`,
         }),
+        getSystems: builder.query({
+            query: (params) => `systems${params ? '?'.concat(new URLSearchParams(params).toString()) : ''}`,
+        }),
         postRegister: builder.mutation({
             query: (params) => ({
                 url: '/register',
@@ -22,4 +25,4 @@ export const spacetradersApi = createApi({
     }),
 });
 
-export const { useGetStatusQuery, useGetFactionsQuery, usePostRegisterMutation } = spacetradersApi;
+export const { useGetStatusQuery, useLazyGetFactionsQuery, useLazyGetSystemsQuery, usePostRegisterMutation } = spacetradersApi;

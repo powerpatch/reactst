@@ -1,3 +1,4 @@
+import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { useGetStatusQuery } from '../../services/spacetraders';
 
 export default function Leaderboard() {
@@ -7,31 +8,33 @@ export default function Leaderboard() {
   const mostSubmittedCharts = data?.leaderboards?.mostSubmittedCharts.map(({ agentSymbol, chartCount }) => <tr key={agentSymbol}><td>{agentSymbol}</td><td>{chartCount}</td></tr>)
 
   return (
-    <div>
-      <h3>Most Credits</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>AGENT SYMBOL</th>
-            <th>CREDITS</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mostCredits}
-        </tbody>
-      </table>
-      <h3>Most Charts</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>AGENT SYMBOL</th>
-            <th>CHARTS</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mostSubmittedCharts}
-        </tbody>
-      </table>
-    </div >
+    <Grid container justifyContent="center">
+      <Grid container maxWidth={1280} width="100%" direction="column" padding={4} gap={1}>
+        <h3>Most Credits</h3>
+        <table style={{ maxWidth: 400 }} width="100%">
+          <thead>
+            <tr>
+              <th style={{ textAlign: "start" }}>AGENT SYMBOL</th>
+              <th style={{ textAlign: "start" }}>CREDITS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mostCredits}
+          </tbody>
+        </table>
+        <h3>Most Charts</h3>
+        <table style={{ maxWidth: 400 }} width="100%">
+          <thead>
+            <tr>
+              <th style={{ textAlign: "start" }}>AGENT SYMBOL</th>
+              <th style={{ textAlign: "start" }}>CHARTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mostSubmittedCharts}
+          </tbody>
+        </table>
+      </Grid>
+    </Grid>
   );
 }

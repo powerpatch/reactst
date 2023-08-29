@@ -1,0 +1,24 @@
+{
+    "editor.formatOnSave": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.tabSize": 2,
+    },
+    "html.format.wrapAttributes": "preserve-aligned",
+    "html.format.wrapLineLength": 0,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+      "editor.tabSize": 2,
+    },
+    "javascript.preferences.quoteStyle": "single",
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+      "editor.tabSize": 2,
+    },
+    "prettier.printWidth": 400,
+    "prettier.bracketSameLine": true,
+    "prettier.trailingComma": "all",
+  }

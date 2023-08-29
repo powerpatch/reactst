@@ -1,11 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  mode: 'light',
+  mode: 'dark',
+  primary: window.localStorage.getItem('primary') || 'blue',
+  secondary: 'blueGrey',
 };
 
 export const themeSlice = createSlice({
-  name: "theme",
+  name: 'theme',
   initialState,
   reducers: {
     toggleMode: (state) => {
@@ -14,9 +16,16 @@ export const themeSlice = createSlice({
     setDarkMode: (state, { payload: darkMode }) => {
       state.mode = darkMode ? 'dark' : 'light';
     },
+    setPrimaryColor: (state, { payload: color }) => {
+      state.primary = color;
+      window.localStorage.setItem('primary', color);
+    },
+    setSecondaryColor: (state, { payload: color }) => {
+      state.secondary = color;
+    },
   },
 });
 
-export const { toggleMode, setDarkMode } = themeSlice.actions;
+export const { toggleMode, setDarkMode, setPrimaryColor, setSecondaryColor } = themeSlice.actions;
 
 export default themeSlice.reducer;
